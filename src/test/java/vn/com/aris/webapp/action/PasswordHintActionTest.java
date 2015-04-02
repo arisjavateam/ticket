@@ -1,8 +1,8 @@
 package vn.com.aris.webapp.action;
 
 import com.opensymphony.xwork2.Action;
-import org.appfuse.model.User;
-import org.appfuse.service.UserManager;
+//import org.appfuse.model.User;
+//import org.appfuse.service.UserManager;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.subethamail.wiser.Wiser;
@@ -12,8 +12,8 @@ import static org.junit.Assert.*;
 public class PasswordHintActionTest extends BaseActionTestCase {
     @Autowired
     private PasswordHintAction action;
-    @Autowired
-    private UserManager userManager;
+//    @Autowired
+//    private UserManager userManager;
 
     @Test
     public void testExecute() throws Exception {
@@ -49,13 +49,13 @@ public class PasswordHintActionTest extends BaseActionTestCase {
     @Test
     public void testExecuteNoPasswordHintUserName() throws Exception {
         action.setUsername("manager");
-        final User user = userManager.getUserByUsername("admin");
+        /*final User user = userManager.getUserByUsername("admin");
         user.setPasswordHint("  ");
         userManager.save(user);
         assertEquals(Action.INPUT, action.execute());
         assertTrue(action.hasActionErrors());
         user.setPasswordHint(null);
-        userManager.save(user);
+        userManager.save(user);*/
         assertEquals(Action.INPUT, action.execute());
         assertTrue(action.hasActionErrors());
     }

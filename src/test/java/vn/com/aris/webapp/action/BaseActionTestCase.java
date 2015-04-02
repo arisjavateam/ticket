@@ -11,7 +11,7 @@ import com.opensymphony.xwork2.util.ValueStackFactory;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.struts2.ServletActionContext;
-import org.appfuse.Constants;
+//import org.appfuse.Constants;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.runner.RunWith;
@@ -32,7 +32,7 @@ import java.util.Random;
  *
  * @author <a href="mailto:matt@raibledesigns.com">Matt Raible</a>
  */
-@RunWith(SpringJUnit4ClassRunner.class)
+//@RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {
     "classpath:/applicationContext-resources.xml",
     "classpath:/applicationContext-dao.xml",
@@ -53,7 +53,7 @@ public abstract class BaseActionTestCase {
         smtpPort = (new Random().nextInt(9999 - 1000) + 1000);
         log.debug("SMTP Port set to: " + smtpPort);
 
-        LocalizedTextUtil.addDefaultResourceBundle(Constants.BUNDLE_KEY);
+//        LocalizedTextUtil.addDefaultResourceBundle(Constants.BUNDLE_KEY);
 
         // Initialize ActionContext
         ConfigurationManager configurationManager = new ConfigurationManager();

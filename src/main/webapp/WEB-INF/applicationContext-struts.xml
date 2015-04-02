@@ -9,7 +9,7 @@
     
     <bean id="accessDeniedInterceptor" class="vn.com.aris.webapp.interceptor.AccessDeniedInterceptor" />
 
-    <bean id="signupAction" class="vn.com.aris.webapp.action.SignupAction" scope="prototype">
+<!--     <bean id="signupAction" class="vn.com.aris.webapp.action.SignupAction" scope="prototype">
         <property name="userManager" ref="userManager"/>
         <property name="roleManager" ref="roleManager"/>
         <property name="mailEngine" ref="mailEngine"/>
@@ -29,5 +29,5 @@
         <property name="userManager" ref="userManager"/>
         <property name="mailEngine" ref="mailEngine"/>
         <property name="mailMessage" ref="mailMessage"/>
-    </bean>
+    </bean> -->
 </beans>
