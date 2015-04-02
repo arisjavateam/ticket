@@ -2,11 +2,11 @@ package vn.com.aris.webapp.action;
 
 import com.opensymphony.xwork2.Preparable;
 import org.apache.struts2.ServletActionContext;
-import org.appfuse.Constants;
-import org.appfuse.dao.SearchException;
-import org.appfuse.model.Role;
-import org.appfuse.model.User;
-import org.appfuse.service.UserExistsException;
+//import org.appfuse.Constants;
+//import org.appfuse.dao.SearchException;
+//import org.appfuse.model.Role;
+//import org.appfuse.model.User;
+//import org.appfuse.service.UserExistsException;
 import vn.com.aris.webapp.util.RequestUtil;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.mail.MailException;
@@ -28,8 +28,8 @@ import java.util.List;
  */
 public class UserAction extends BaseAction implements Preparable {
     private static final long serialVersionUID = 6776558938712115191L;
-    private List<User> users;
-    private User user;
+//    private List<User> users;
+//    private User user;
     private String id;
     private String query;
 
@@ -39,7 +39,7 @@ public class UserAction extends BaseAction implements Preparable {
     public void prepare() {
         // prevent failures on new
         if (getRequest().getMethod().equalsIgnoreCase("post") && (!"".equals(getRequest().getParameter("user.id")))) {
-            user = userManager.getUser(getRequest().getParameter("user.id"));
+//            user = userManager.getUser(getRequest().getParameter("user.id"));
         }
     }
 
@@ -48,21 +48,21 @@ public class UserAction extends BaseAction implements Preparable {
      *
      * @return list of users
      */
-    public List<User> getUsers() {
-        return users;
-    }
+//    public List<User> getUsers() {
+//        return users;
+//    }
 
     public void setId(String id) {
         this.id = id;
     }
 
-    public User getUser() {
-        return user;
-    }
+//    public User getUser() {
+//        return user;
+//    }
 
-    public void setUser(User user) {
-        this.user = user;
-    }
+//    public void setUser(User user) {
+//        this.user = user;
+//    }
 
     public void setQ(String q) {
         this.query = q;
@@ -74,9 +74,9 @@ public class UserAction extends BaseAction implements Preparable {
      * @return success
      */
     public String delete() {
-        userManager.removeUser(user.getId().toString());
+//        userManager.removeUser(user.getId().toString());
         List<Object> args = new ArrayList<Object>();
-        args.add(user.getFullName());
+//        args.add(user.getFullName());
         saveMessage(getText("user.deleted", args));
 
         return SUCCESS;
@@ -103,15 +103,15 @@ public class UserAction extends BaseAction implements Preparable {
         // if a user's id is passed in
         if (id != null) {
             // lookup the user using that id
-            user = userManager.getUser(id);
+//            user = userManager.getUser(id);
         } else if (editProfile) {
-            user = userManager.getUserByUsername(request.getRemoteUser());
+//            user = userManager.getUserByUsername(request.getRemoteUser());
         } else {
-            user = new User();
-            user.addRole(new Role(Constants.USER_ROLE));
+//            user = new User();
+//            user.addRole(new Role(Constants.USER_ROLE));
         }
 
-        if (user.getUsername() != null) {
+       /* if (user.getUsername() != null) {
             user.setConfirmPassword(user.getPassword());
 
             // if user logged in with remember me, display a warning that they can't change passwords
@@ -128,7 +128,7 @@ public class UserAction extends BaseAction implements Preparable {
                     saveMessage(getText("userProfile.cookieLogin"));
                 }
             }
-        }
+        }*/
 
         return SUCCESS;
     }
@@ -162,7 +162,7 @@ public class UserAction extends BaseAction implements Preparable {
      */
     public String save() throws Exception {
 
-        Integer originalVersion = user.getVersion();
+        /*Integer originalVersion = user.getVersion();
 
         boolean isNew = ("".equals(getRequest().getParameter("user.version")));
         // only attempt to change roles if user is admin
@@ -215,11 +215,12 @@ public class UserAction extends BaseAction implements Preparable {
                 saveMessage(getText("user.updated.byAdmin", args));
                 return INPUT;
             }
-        }
+        }*/
+    	return null;
     }
 
     private String showUserExistsException(Integer originalVersion) {
-        List<Object> args = new ArrayList<Object>();
+       /* List<Object> args = new ArrayList<Object>();
         args.add(user.getUsername());
         args.add(user.getEmail());
         addActionError(getText("errors.existing.user", args));
@@ -227,7 +228,7 @@ public class UserAction extends BaseAction implements Preparable {
         // reset the version # to what was passed in
         user.setVersion(originalVersion);
         // redisplay the unencrypted passwords
-        user.setPassword(user.getConfirmPassword());
+        user.setPassword(user.getConfirmPassword());*/
         return INPUT;
     }
 
@@ -237,12 +238,12 @@ public class UserAction extends BaseAction implements Preparable {
      * @return "success" if no exceptions thrown
      */
     public String list() {
-        try {
+        /*try {
             users = userManager.search(query);
         } catch (SearchException se) {
             addActionError(se.getMessage());
             users = userManager.getUsers();
-        }
+        }*/
         return SUCCESS;
     }
 

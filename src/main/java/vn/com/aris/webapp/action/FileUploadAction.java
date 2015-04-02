@@ -1,7 +1,7 @@
 package vn.com.aris.webapp.action;
 
 import org.apache.struts2.ServletActionContext;
-import org.appfuse.Constants;
+//import org.appfuse.Constants;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -62,8 +62,8 @@ public class FileUploadAction extends BaseAction {
         stream.close();
 
         // place the data into the request for retrieval on next page
-        getRequest().setAttribute("location", dirPath.getAbsolutePath()
-                + Constants.FILE_SEP + fileFileName);
+//        getRequest().setAttribute("location", dirPath.getAbsolutePath()
+//                + Constants.FILE_SEP + fileFileName);
 
         String link = getRequest().getContextPath() + "/resources" + "/"
                 + getRequest().getRemoteUser() + "/";

@@ -1,6 +1,6 @@
 package vn.com.aris.webapp.action;
 
-import org.appfuse.model.User;
+//import org.appfuse.model.User;
 import vn.com.aris.webapp.util.RequestUtil;
 import org.springframework.mail.MailException;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -47,7 +47,7 @@ public class PasswordHintAction extends BaseAction {
 
         // look up the user's information
         try {
-            User user = userManager.getUserByUsername(username);
+            /*User user = userManager.getUserByUsername(username);
             String hint = user.getPasswordHint();
 
             if (hint == null || hint.trim().equals("")) {
@@ -67,7 +67,7 @@ public class PasswordHintAction extends BaseAction {
             mailEngine.send(mailMessage);
             
             args.add(username);
-            args.add(user.getEmail());
+            args.add(user.getEmail());*/
             
             saveMessage(getText("login.passwordHint.sent", args));
         } catch (UsernameNotFoundException e) {

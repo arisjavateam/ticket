@@ -2,9 +2,9 @@ package vn.com.aris.webapp.action;
 
 
 import org.apache.struts2.ServletActionContext;
-import org.appfuse.Constants;
-import org.appfuse.model.User;
-import org.appfuse.service.UserExistsException;
+//import org.appfuse.Constants;
+//import org.appfuse.model.User;
+//import org.appfuse.service.UserExistsException;
 import vn.com.aris.webapp.util.RequestUtil;
 import org.springframework.mail.MailException;
 import org.springframework.security.access.AccessDeniedException;
@@ -20,24 +20,24 @@ import java.util.List;
  */
 public class SignupAction extends BaseAction {
     private static final long serialVersionUID = 6558317334878272308L;
-    private User user;
+//    private User user;
     private String cancel;
 
     public void setCancel(String cancel) {
         this.cancel = cancel;
     }
 
-    public void setUser(User user) {
-        this.user = user;
-    }
+//    public void setUser(User user) {
+//        this.user = user;
+//    }
 
     /**
      * Return an instance of the user - to display when validation errors occur
      * @return a populated user
      */
-    public User getUser() {
+    /*public User getUser() {
         return user;
-    }
+    }*/
 
     /**
      * When method=GET, "input" is returned. Otherwise, "success" is returned.
@@ -67,7 +67,7 @@ public class SignupAction extends BaseAction {
      * @throws Exception when bad things happen
      */
     public String save() throws Exception {
-        user.setEnabled(true);
+        /*user.setEnabled(true);
 
         // Set the default user role on this new user
         user.addRole(roleManager.getRole(Constants.USER_ROLE));
@@ -107,7 +107,7 @@ public class SignupAction extends BaseAction {
             sendUserMessage(user, getText("signup.email.message"), RequestUtil.getAppURL(getRequest()));
         } catch (MailException me) {
             addActionError(me.getMostSpecificCause().getMessage());
-        }
+        }*/
 
         return SUCCESS;
     }

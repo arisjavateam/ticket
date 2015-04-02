@@ -2,9 +2,9 @@ package vn.com.aris.webapp.listener;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.appfuse.Constants;
-import org.appfuse.service.GenericManager;
-import org.appfuse.service.LookupManager;
+//import org.appfuse.Constants;
+//import org.appfuse.service.GenericManager;
+//import org.appfuse.service.LookupManager;
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -50,7 +50,7 @@ public class StartupListener implements ServletContextListener {
 
         // Orion starts Servlets before Listeners, so check if the config
         // object already exists
-        Map<String, Object> config = (HashMap<String, Object>) context.getAttribute(Constants.CONFIG);
+        /*Map<String, Object> config = (HashMap<String, Object>) context.getAttribute(Constants.CONFIG);
 
         if (config == null) {
             config = new HashMap<>();
@@ -113,7 +113,7 @@ public class StartupListener implements ServletContextListener {
         }
 
         log.info("Application version set to: " + appVersion);
-        context.setAttribute(Constants.ASSETS_VERSION, appVersion);
+        context.setAttribute(Constants.ASSETS_VERSION, appVersion);*/
     }
 
     /**
@@ -122,7 +122,7 @@ public class StartupListener implements ServletContextListener {
      * @param context The servlet context
      */
     public static void setupContext(ServletContext context) {
-        ApplicationContext ctx = WebApplicationContextUtils.getRequiredWebApplicationContext(context);
+        /*ApplicationContext ctx = WebApplicationContextUtils.getRequiredWebApplicationContext(context);
         LookupManager mgr = (LookupManager) ctx.getBean("lookupManager");
 
         // get list of possible roles
@@ -131,13 +131,13 @@ public class StartupListener implements ServletContextListener {
 
         // Any manager extending GenericManager will do:
         GenericManager manager = (GenericManager) ctx.getBean("userManager");
-        doReindexing(manager);
+        doReindexing(manager);*/
         log.debug("Full text search reindexing complete [OK]");
     }
 
-    private static void doReindexing(GenericManager manager) {
+    /*private static void doReindexing(GenericManager manager) {
         manager.reindexAll(false);
-    }
+    }*/
 
     /**
      * Shutdown servlet context (currently a no-op method).

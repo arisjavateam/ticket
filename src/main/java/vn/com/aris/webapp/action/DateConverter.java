@@ -2,7 +2,7 @@ package vn.com.aris.webapp.action;
 
 import com.opensymphony.xwork2.conversion.TypeConversionException;
 import org.apache.struts2.util.StrutsTypeConverter;
-import org.appfuse.util.DateUtil;
+//import org.appfuse.util.DateUtil;
 
 import java.text.ParseException;
 import java.util.Date;
@@ -25,11 +25,12 @@ public class DateConverter extends StrutsTypeConverter {
             return null;
         }
 
-        try {
-            return DateUtil.convertStringToDate(value[0]);
-        } catch (ParseException pe) {
-            throw new TypeConversionException(pe.getMessage(), pe);
-        }
+//        try {
+//            return DateUtil.convertStringToDate(value[0]);
+//        } catch (ParseException pe) {
+//            throw new TypeConversionException(pe.getMessage(), pe);
+//        }
+        return null;
     }
 
     /**
@@ -38,6 +39,7 @@ public class DateConverter extends StrutsTypeConverter {
     @Override
     @SuppressWarnings("unchecked")
     public String convertToString(Map ctx, Object data) {
-        return DateUtil.convertDateToString((Date) data);
+        /*return DateUtil.convertDateToString((Date) data);*/
+    	return null;
     }
 } 

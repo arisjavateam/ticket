@@ -1,6 +1,6 @@
 package vn.com.aris.webapp.listener;
 
-import org.appfuse.model.User;
+//import org.appfuse.model.User;
 import org.springframework.security.authentication.AuthenticationTrustResolver;
 import org.springframework.security.authentication.AuthenticationTrustResolverImpl;
 import org.springframework.security.core.Authentication;
@@ -42,7 +42,7 @@ public class UserCounterListener implements ServletContextListener, HttpSessionA
     public static final String EVENT_KEY = HttpSessionSecurityContextRepository.SPRING_SECURITY_CONTEXT_KEY;
     private transient ServletContext servletContext;
     private int counter;
-    private Set<User> users;
+//    private Set<User> users;
 
     /**
      * Initialize the context
@@ -61,7 +61,7 @@ public class UserCounterListener implements ServletContextListener, HttpSessionA
      */
     public synchronized void contextDestroyed(ServletContextEvent event) {
         servletContext = null;
-        users = null;
+//        users = null;
         counter = 0;
     }
 
@@ -82,7 +82,7 @@ public class UserCounterListener implements ServletContextListener, HttpSessionA
         servletContext.setAttribute(COUNT_KEY, Integer.toString(counter));
     }
 
-    @SuppressWarnings("unchecked")
+/*    @SuppressWarnings("unchecked")
     synchronized void addUsername(User user) {
         users = (Set<User>) servletContext.getAttribute(USERS_KEY);
 
@@ -95,9 +95,9 @@ public class UserCounterListener implements ServletContextListener, HttpSessionA
             servletContext.setAttribute(USERS_KEY, users);
             incrementUserCounter();
         }
-    }
+    }*/
 
-    @SuppressWarnings("unchecked")
+    /*@SuppressWarnings("unchecked")
     synchronized void removeUsername(User user) {
         users = (Set<User>) servletContext.getAttribute(USERS_KEY);
 
@@ -107,7 +107,7 @@ public class UserCounterListener implements ServletContextListener, HttpSessionA
 
         servletContext.setAttribute(USERS_KEY, users);
         decrementUserCounter();
-    }
+    }*/
 
     /**
      * This method is designed to catch when user's login and record their name
@@ -117,11 +117,11 @@ public class UserCounterListener implements ServletContextListener, HttpSessionA
      */
     public void attributeAdded(HttpSessionBindingEvent event) {
         if (event.getName().equals(EVENT_KEY) && !isAnonymous()) {
-            SecurityContext securityContext = (SecurityContext) event.getValue();
+            /*SecurityContext securityContext = (SecurityContext) event.getValue();
             if (securityContext != null && securityContext.getAuthentication().getPrincipal() instanceof User) {
                 User user = (User) securityContext.getAuthentication().getPrincipal();
                 addUsername(user);
-            }
+            }*/
         }
     }
 
@@ -145,10 +145,10 @@ public class UserCounterListener implements ServletContextListener, HttpSessionA
         if (event.getName().equals(EVENT_KEY) && !isAnonymous()) {
             SecurityContext securityContext = (SecurityContext) event.getValue();
             Authentication auth = securityContext.getAuthentication();
-            if (auth != null && (auth.getPrincipal() instanceof User)) {
+            /*if (auth != null && (auth.getPrincipal() instanceof User)) {
                 User user = (User) auth.getPrincipal();
                 removeUsername(user);
-            }
+            }*/
         }
     }
 
@@ -162,11 +162,11 @@ public class UserCounterListener implements ServletContextListener, HttpSessionA
     public void attributeReplaced(HttpSessionBindingEvent event) {
         if (event.getName().equals(EVENT_KEY) && !isAnonymous()) {
             final SecurityContext securityContext = (SecurityContext) event.getValue();
-            if (securityContext.getAuthentication() != null
+            /*if (securityContext.getAuthentication() != null
                     && securityContext.getAuthentication().getPrincipal() instanceof User) {
                 final User user = (User) securityContext.getAuthentication().getPrincipal();
                 addUsername(user);
-            }
+            }*/
         }
     }
     

@@ -1,6 +1,6 @@
 package vn.com.aris.webapp.filter;
 
-import org.appfuse.Constants;
+//import org.appfuse.Constants;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.web.filter.OncePerRequestFilter;
 
@@ -49,7 +49,7 @@ public class LocaleFilter extends OncePerRequestFilter {
 
         HttpSession session = request.getSession(false);
 
-        if (session != null) {
+        /*if (session != null) {
             if (preferredLocale == null) {
                 preferredLocale = (Locale) session.getAttribute(Constants.PREFERRED_LOCALE_KEY);
             } else {
@@ -61,7 +61,7 @@ public class LocaleFilter extends OncePerRequestFilter {
                 request = new LocaleRequestWrapper(request, preferredLocale);
                 LocaleContextHolder.setLocale(preferredLocale);
             }
-        }
+        }*/
 
         chain.doFilter(request, response);
 

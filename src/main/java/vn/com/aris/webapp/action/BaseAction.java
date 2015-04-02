@@ -4,11 +4,12 @@ import com.opensymphony.xwork2.ActionSupport;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.struts2.ServletActionContext;
-import org.appfuse.Constants;
-import org.appfuse.model.User;
-import org.appfuse.service.MailEngine;
-import org.appfuse.service.RoleManager;
-import org.appfuse.service.UserManager;
+//import org.appfuse.Constants;
+//import org.appfuse.model.User;
+//import org.appfuse.service.MailEngine;
+//import org.appfuse.service.RoleManager;
+//import org.appfuse.service.UserManager;
+
 import org.springframework.mail.SimpleMailMessage;
 
 import javax.servlet.http.HttpServletRequest;
@@ -44,12 +45,12 @@ public class BaseAction extends ActionSupport {
     /**
      * The UserManager
      */
-    protected UserManager userManager;
+//    protected UserManager userManager;
 
     /**
      * The RoleManager
      */
-    protected RoleManager roleManager;
+//    protected RoleManager roleManager;
 
     /**
      * Indicator if the user clicked cancel
@@ -74,12 +75,12 @@ public class BaseAction extends ActionSupport {
     /**
      * MailEngine for sending e-mail
      */
-    protected MailEngine mailEngine;
+//    protected MailEngine mailEngine;
 
     /**
      * A message pre-populated with default data
      */
-    protected SimpleMailMessage mailMessage;
+//    protected SimpleMailMessage mailMessage;
 
     /**
      * Velocity template to use for e-mailing
@@ -117,12 +118,13 @@ public class BaseAction extends ActionSupport {
      * @return the user's populated form from the session
      */
     protected Map getConfiguration() {
-        Map config = (HashMap) getSession().getServletContext().getAttribute(Constants.CONFIG);
+//        Map config = (HashMap) getSession().getServletContext().getAttribute(Constants.CONFIG);
         // so unit tests don't puke when nothing's been set
-        if (config == null) {
-            return new HashMap();
-        }
-        return config;
+//        if (config == null) {
+//            return new HashMap();
+//        }
+//        return config;
+    	return null;
     }
 
     /**
@@ -159,41 +161,41 @@ public class BaseAction extends ActionSupport {
      * @param msg the message to send
      * @param url the URL to the application (or where ever you'd like to send them)
      */
-    protected void sendUserMessage(User user, String msg, String url) {
-        if (log.isDebugEnabled()) {
-            log.debug("sending e-mail to user [" + user.getEmail() + "]...");
-        }
+//    protected void sendUserMessage(User user, String msg, String url) {
+//        if (log.isDebugEnabled()) {
+//            log.debug("sending e-mail to user [" + user.getEmail() + "]...");
+//        }
+//
+//        mailMessage.setTo(user.getFullName() + "<" + user.getEmail() + ">");
+//
+//        Map<String, Object> model = new HashMap<String, Object>();
+//        model.put("user", user);
+//        // TODO: figure out how to get bundle specified in struts.xml
+//        // model.put("bundle", getTexts());
+//        model.put("message", msg);
+//        model.put("applicationURL", url);
+//        mailEngine.sendMessage(mailMessage, templateName, model);
+//    }
 
-        mailMessage.setTo(user.getFullName() + "<" + user.getEmail() + ">");
-
-        Map<String, Object> model = new HashMap<String, Object>();
-        model.put("user", user);
-        // TODO: figure out how to get bundle specified in struts.xml
-        // model.put("bundle", getTexts());
-        model.put("message", msg);
-        model.put("applicationURL", url);
-        mailEngine.sendMessage(mailMessage, templateName, model);
-    }
-
-    public void setUserManager(UserManager userManager) {
-        this.userManager = userManager;
-    }
-
-    public void setRoleManager(RoleManager roleManager) {
-        this.roleManager = roleManager;
-    }
-
-    public void setMailEngine(MailEngine mailEngine) {
-        this.mailEngine = mailEngine;
-    }
-
-    public void setMailMessage(SimpleMailMessage mailMessage) {
-        this.mailMessage = mailMessage;
-    }
-
-    public void setTemplateName(String templateName) {
-        this.templateName = templateName;
-    }
+//    public void setUserManager(UserManager userManager) {
+//        this.userManager = userManager;
+//    }
+//
+//    public void setRoleManager(RoleManager roleManager) {
+//        this.roleManager = roleManager;
+//    }
+//
+//    public void setMailEngine(MailEngine mailEngine) {
+//        this.mailEngine = mailEngine;
+//    }
+//
+//    public void setMailMessage(SimpleMailMessage mailMessage) {
+//        this.mailMessage = mailMessage;
+//    }
+//
+//    public void setTemplateName(String templateName) {
+//        this.templateName = templateName;
+//    }
 
     /**
      * Convenience method for setting a "from" parameter to indicate the previous page.
