@@ -11,7 +11,7 @@
         <property name="locations">
             <list>
                 <value>classpath:jdbc.properties</value>
-                <value>classpath:mail.properties</value>
+<!--                 <value>classpath:mail.properties</value> -->
                 <value>classpath:hibernate.properties</value>
             </list>
         </property>
